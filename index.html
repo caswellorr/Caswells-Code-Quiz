@@ -4,24 +4,61 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>State Capitol Quiz</title>
 
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
+  
+  
+  <!-- ========= HEADER, HIGH SCORE, COUNTDOWN ====================-->
+  
+  
+  <header>
+    <h1>State Capitol Game</h1>
+    <ul>
+      <li>High Score: <span id="high-score"></span></li>
+      <li>Time Left: <span id="countdown">30</span></li>
+    </ul>
+  </header>
 
+  
+
+  <!-- ========== START / RESET BUTTONS, QUESTIONS AND MULTIPLE CHOICE ====================-->
     <main>
-      <h1>History Quiz Challenge</h1>
+      
+      <section>
 
-      <button class="questions"></button>
+        <button id="start-button">Start</button>
+        <button id="reset-button">Reset</button>
+      </section>
 
+      <section>
 
+        <h3 class="question" id="question1"></h3>
 
+        <button class="quiz-button"  id="#btn1"></button>
+        <button class="quiz-button" id="#btn2"></button>
+        <button class="quiz-button" id="#btn3"></button>
+        <button class="quiz-button" id="#btn4"></button>
 
+      </section>
 
+  ,<!-- ============================== SCORECARD ===============================-->
 
+    <!-- <section>
+      <div class="card results">
+        <div class = "win-loss-container">
+        <div>
+        <h2>Wins: <span class="win">0 </span> </h2>
+        <h2>Losses: <span class="lose">0</span></h2>
+      </div> -->
+
+  
+  
     </main>
 
-<script src="./script.js"></script>
+
+  <script src="./script.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 
 //  ================== TIMER =========================
 
-let timeLeft = 30;
+let timeLeft = 20;
 let startButton = document.querySelector(".start-button")
 let intervalId;
 let displayTimer = document.querySelector(".timer-count");
@@ -35,13 +35,13 @@ function startTimer(){
 let questions = [
   {
     question: "What is the capitol of Texas?",
-    answers: ["Houston", "Dallas", "Lubbock", "Austin"],
-    correctAnswer: 4,
+    answers: ["Houston", "Dallas", "San Antonio", "Austin"],
+    correctAnswer: 3,
   },
   {
     question: "What is the capitol of Colorado?",
     answers: ["Denver", "Carbondale", "Estes Park", "Boulder"],
-    correctAnswer: 1,
+    correctAnswer: 0,
   },
   {
     question: "What is the capitol of California?",
@@ -53,7 +53,9 @@ let questions = [
     answers: ["Sturgis", "Pierre", "Rapid City", "Deadwood"],
     correctAnswer: 2,
   },
-]
+];
+
+// console.log(questions);
 
 let currentQuestion = 0
 
@@ -61,7 +63,7 @@ for (let i=0; i < questions.length ; i++) {
   const element = questions[i]
 }
 
-for (let j = 0; j < questinos[startingQuestinos].answers.length);
+for (let j = 0; j < questions[startingQuestinos].answers.length; i++);
 
 document.querySelector("#question").textContent = questions
 
