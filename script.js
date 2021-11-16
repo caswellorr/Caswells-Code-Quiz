@@ -1,11 +1,13 @@
 
-//  ================== TIMER =========================
+//  ===================== TIMER =========================
 
 let timeLeft = 60;
 let startButton = document.querySelector("#start-button");
 let intervalId;
 let displayTimer = document.querySelector("#countdown");
-let resetButton = document.querySelector("#reset-button");
+let resetButton = document.querySelector("#reset-button"); 
+
+
 
 
 startButton.addEventListener("click", function(){
