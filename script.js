@@ -4,15 +4,13 @@ let timeLeft = 60;
 let startButton = document.querySelector("#start-button");
 let intervalId;
 let displayTimer = document.querySelector("#countdown");
-let resetButton = document.querySelector("#reset-button"); 
-// let btn1 = document.querySelector('#btn1').lyricArray.answers[0];
-// let btn2 = document.querySelector('#btn2');
-// let btn3 = document.querySelector('#btn3');
-// let btn4 = document.querySelector('#btn4');
+let resetButton = document.querySelector("#reset-button");
+
+let score = 0;
 
 // ==================== START GAME ============================
 
-startButton.addEventListener("click", function(){
+startButton.addEventListener("click", function () {
   clearInterval(intervalId);
   timeLeft = 60;
 
@@ -22,23 +20,23 @@ startButton.addEventListener("click", function(){
   // When start button is pressed, the question appears on the screen
   startGame();
 
-  
+
 });
 
 //  ===================== TIMER =========================
 
-function startTimer(){
+function startTimer() {
 
-  intervalId = setInterval(function(){
+  intervalId = setInterval(function () {
     timeLeft--;
     displayTimer.textContent = timeLeft;
-    if(timeLeft === 0){
+    if (timeLeft === 0) {
       console.log("Time's Up!")
       clearInterval(intervalId);
 
     }
-    
-    }, 1000)
+
+  }, 1000)
 
 };
 
@@ -50,82 +48,85 @@ let lyricArray = [
   {
     givenLyric: "All my exes live in ________ ...",
     answers: ["Texas", "Kansas", "Sturgis", "Frisco"],
-    correctAnswer: 0,
+    correctAnswer: "Texas",
   },
   {
     givenLyric: "the Rocky Mountain ________ is better than the way we had...",
-    answers: ["clay", "hey", "way", "stay"],
-    correctAnswer: 2,
+    answers: ["Clay", "Hey", "Way", "Stay"],
+    correctAnswer: "Way",
   },
   {
     givenLyric: "Got me on my knees, _________ ...",
     answers: ["Rigby", "Perla", "Layla", "Kayla"],
-    correctAnswer: 2,
+    correctAnswer: "Layla",
   },
   {
     givenLyric: "__________ all my troubles seemed so far away...",
     answers: ["In the car today", "The other day", "Wednesday", "Yesterday"],
-    correctAnswer: 3,
+    correctAnswer: "Yesterday",
   },
   {
-    givenLyric: "__________ on the Mountain ...",
+    givenLyric: "__________ on the Mountain ...",                                       
     answers: ["Aspens", "Fire", "Snow", "Goats"],
-    correctAnswer: 1,
+    correctAnswer: "Fire",
   },
 ];
 
 
 //============= START GAME FUNCTION =====================
 
-function startGame () {
+function startGame() {
+  // makes the start button disappear after clicked
+  document.querySelector('#start-button').setAttribute('class', 'hide')
 
-  // Connects the question from array to the HTML
-  document.querySelector(".lyrics").textContent = lyricArray[currentLyric].givenLyric
-   console.log(lyricArray[currentLyric].givenLyric);
-  
+  renderQuestions()
 }
 
-// btn1.innerText = lyricArray[currentLyric].answers[0];
+function renderQuestions() {
+  // acts like clearInterval - once the function has run through and the user has chosen an answer with a consequence, these lines clear it out to make space for the next optin in the lyricArray
+  document.querySelector('.lyrics').textContent = "";
+  document.querySelector('#options').textContent = "";
 
-console.log(btn1);
+  // Connects the question from array to the HTML
+  document.querySelector('.lyrics').textContent = lyricArray[currentLyric].givenLyric
+  console.log(lyricArray[currentLyric].givenLyric);
+
+  for (var i = 0; i < lyricArray[currentLyric].answers.length; i++) {
+    //creating a variable that will create an element  that becomes the buttons for the answer choices
+    var optionBtn = document.createElement('button');
+    // setting the value of the id of the optionBtn to the value of the answers property of the array, which is the number order of the array
+    optionBtn.setAttribute('id', lyricArray[currentLyric].answers[i]);// sets the text of the optionsBtn to the text in the answers property
+    optionBtn.textContent = lyricArray[currentLyric].answers[i];
+    // appending the optionsBtn variable to the options id in the html to display
+    document.querySelector('#options').append(optionBtn);
+    // creating an event for the answer options for user to choose from, and when clicked an event happens - either you get 20 points added to your score, or 5 seconds taken off the timer
+    optionBtn.addEventListener('click', function (event) {
+      console.log(event.target.id)
+      if (event.target.id === lyricArray[currentLyric].correctAnswer) {
+        score += 20;
+        console.log('correct');
+      } else {
+        timeLeft -= 5;
+        console.log('incorrect')
+      }
+      // after an option is clicked, we want to move to the next value of the lyricArray, so we increment to the currentLyric=0, then it goes to currentLyric=1 and so on.. 
+      currentLyric++
+
+      renderQuestions()
+    });
+
+  };
+
+};
 
 
-// document.querySelector("#btn1").textContent = lyricArray[currentLyric].answers[1];
-
-// document.querySelector("#btn2").textContent = lyricArray[currentLyric].answers[1]
-// document.querySelector("#btn3").textContent = lyricArray[currentLyric].answers[2]
-// document.querySelector("#btn4").textContent = lyricArray[currentLyric].answers[3]
-
-
-
-         
 
 
 
 
-
-
-
-// questions = questions[currentQuestion];
-
-// for (let i=0; i < questions.length ; i++) {
-//   const element = questions[i];
-//   console.log(currentQuestion);
-// }
-
-// for (let j = 0; j < questions[currentQuestion].answers.length; i++);
-
+// need game to stop oonce user answers the last question. and to tally the score (as they go). 
 
 // data- listen to click and get data set from the button itself
-
-// document.querySelector("#question").textContent = questions[currentQuestion].question;
-
-// four 
-
-//eventlistener for each button each questions that checks if its answered correctly then moves to next question and if wrong it takes time from the timer
-
-// need to make a function to start the game and put into the start button that starts timer anfd the game
-
 
 //setTimeout
 
