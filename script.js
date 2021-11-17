@@ -5,7 +5,7 @@ let startButton = document.querySelector("#start-button");
 let intervalId;
 let displayTimer = document.querySelector("#countdown");
 let resetButton = document.querySelector("#reset-button"); 
-let btn1 = document.querySelector('#btn1');
+// let btn1 = document.querySelector('#btn1').lyricArray.answers[0];
 // let btn2 = document.querySelector('#btn2');
 // let btn3 = document.querySelector('#btn3');
 // let btn4 = document.querySelector('#btn4');
@@ -74,8 +74,6 @@ let lyricArray = [
   },
 ];
 
-btn1.innerText = lyricArray[currentLyric].answers[0];
-
 
 //============= START GAME FUNCTION =====================
 
@@ -87,7 +85,7 @@ function startGame () {
   
 }
 
-btn1.innerText = lyricArray[currentLyric].answers[0];
+// btn1.innerText = lyricArray[currentLyric].answers[0];
 
 console.log(btn1);
 
@@ -142,4 +140,4 @@ console.log(btn1);
 
 //scoreboard = 0
 
-//highscore=0
+//highscore = 0
