@@ -1,12 +1,24 @@
-# 04 Web APIs: Code Quiz
+# What's that lyric? 🏆
 
-## Your Task
+## Would you like to play a game? 📖
 
-At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+This application assesses how well you know the lyrics to a couple classic songs. 
 
-To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+There is a missing lyric in each line from a song you should know. 
 
-This week’s coursework will equip you with all the skills you need to succeed in this assignment.
+You have thirty seconds to fill in the blanks with the provided lyrics. Choose wisely because if you get it wrong, five seconds will be taken off the timer and you will not we awarded with any points. 
+
+At the end of the game you can enter your initals and be added to the scoreboard. Then play again to try to beat your high score!
+
+## Features 📝
+
+
+
+
+
+## What did I learn? 💡
+
+
 
 ## User Story
 
@@ -34,26 +46,6 @@ THEN I can save my initials and my score
 
 ---
 
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
-
-
-let questions = [
-  {
-    question: "",
-    answers: ["", "", "", ""],
-    correctAnswer: 2 (Correct Index)
-  },
-  {
-    question,
-    answers,
-    corrrect
-  }
-]
-
-for (let i=0; i < questions.length ; i++>) {
-  const element = questions[i]
-}
-
-for (let j = 0; j < questinos[startingQuestinos].answers.length)
+© 2021 Caswell Lee Orr. Confidential and Proprietary. All Rights Reserved.
 
 

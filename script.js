@@ -1,25 +1,21 @@
 // =================== VARIABLES =============================
 
-let timeLeft = 60;
+let timeLeft = 30;
 let startButton = document.querySelector("#start-button");
 let intervalId;
 let displayTimer = document.querySelector("#countdown");
-let resetButton = document.querySelector("#reset-button");
-
-let score = 0;
+let displayScore = document.querySelector("#high-score");
+let score = 0
 
 // ==================== START GAME ============================
 
 startButton.addEventListener("click", function () {
-  clearInterval(intervalId);
-  timeLeft = 60;
 
-  // when start button is pressed, the timer begins
+  clearInterval(intervalId);
+
   startTimer();
 
-  // When start button is pressed, the question appears on the screen
   startGame();
-
 
 });
 
@@ -42,7 +38,6 @@ function startTimer() {
 };
 
 // ================== QUESTIONS AND ANSWERS ======================
-
 
 let currentLyric = 0;
 let lyricArray = [
@@ -67,7 +62,7 @@ let lyricArray = [
     correctAnswer: "Yesterday",
   },
   {
-    givenLyric: "__________ on the Mountain ...",                                       
+    givenLyric: "_____, ______ on the Mountain ...",
     answers: ["Aspens", "Fire", "Snow", "Goats"],
     correctAnswer: "Fire",
   },
@@ -77,30 +72,28 @@ let lyricArray = [
 //============= START GAME FUNCTION =====================
 
 function startGame() {
-  // makes the start button disappear after clicked
-  document.querySelector('#start-button').setAttribute('class', 'hide')
+
+  document.querySelector('#start-button').setAttribute('class', 'hide');
 
   renderQuestions()
 }
 
 function renderQuestions() {
-  // acts like clearInterval - once the function has run through and the user has chosen an answer with a consequence, these lines clear it out to make space for the next optin in the lyricArray
+
   document.querySelector('.lyrics').textContent = "";
   document.querySelector('#options').textContent = "";
 
-  // Connects the question from array to the HTML
   document.querySelector('.lyrics').textContent = lyricArray[currentLyric].givenLyric
   console.log(lyricArray[currentLyric].givenLyric);
 
-  for (var i = 0; i < lyricArray[currentLyric].answers.length; i++) {
-    //creating a variable that will create an element  that becomes the buttons for the answer choices
-    var optionBtn = document.createElement('button');
-    // setting the value of the id of the optionBtn to the value of the answers property of the array, which is the number order of the array
-    optionBtn.setAttribute('id', lyricArray[currentLyric].answers[i]);// sets the text of the optionsBtn to the text in the answers property
+  for (let i = 0; i < lyricArray[currentLyric].answers.length; i++) {
+
+    let optionBtn = document.createElement('button');
+    optionBtn.setAttribute('id', lyricArray[currentLyric].answers[i]);
     optionBtn.textContent = lyricArray[currentLyric].answers[i];
-    // appending the optionsBtn variable to the options id in the html to display
+
     document.querySelector('#options').append(optionBtn);
-    // creating an event for the answer options for user to choose from, and when clicked an event happens - either you get 20 points added to your score, or 5 seconds taken off the timer
+
     optionBtn.addEventListener('click', function (event) {
       console.log(event.target.id)
       if (event.target.id === lyricArray[currentLyric].correctAnswer) {
@@ -110,25 +103,39 @@ function renderQuestions() {
         timeLeft -= 5;
         console.log('incorrect')
       }
-      // after an option is clicked, we want to move to the next value of the lyricArray, so we increment to the currentLyric=0, then it goes to currentLyric=1 and so on.. 
+
       currentLyric++
 
-      if (currentLyric == 5){
+      if (currentLyric == 5) {
         endGame()
       }
 
       renderQuestions()
+
     });
 
   };
 
 };
 
-localStorage.setItem()
+// localStorage.setItem()
 
 function endGame() {
-console.log('cucumber');
-  
+
+    // hides the the contents in the main element
+  document.querySelector('#main').setAttribute('class', 'hide');
+    // stops timer when all questions have been answered
+  if (lyricArray[currentLyric] === undefined){
+    
+    clearInterval(intervalId);
+
+  }
+
+
+
+
+
+
   // hide - the <main> element
   // display text that lets user know game's over by creating an element
   // display final score
