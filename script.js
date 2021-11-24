@@ -33,6 +33,7 @@ function startTimer() {
     if (timeLeft === 0) {
       console.log("Time's Up!")
       clearInterval(intervalId);
+      endGame();
 
     }
 
@@ -112,6 +113,10 @@ function renderQuestions() {
       // after an option is clicked, we want to move to the next value of the lyricArray, so we increment to the currentLyric=0, then it goes to currentLyric=1 and so on.. 
       currentLyric++
 
+      if (currentLyric == 5){
+        endGame()
+      }
+
       renderQuestions()
     });
 
@@ -119,12 +124,32 @@ function renderQuestions() {
 
 };
 
+localStorage.setItem()
+
+function endGame() {
+console.log('cucumber');
+  
+  // hide - the <main> element
+  // display text that lets user know game's over by creating an element
+  // display final score
+  // store score to localStorage
+  // display an input - form saved to local storage
+  // previous highscores
+  // turn off timer
+
+}
+
+// key value pairs
+
+// local storage a container to store things
+
+
+// function to end the game then prompts user to enter name and save score to local storage
 
 
 
 
-
-// need game to stop oonce user answers the last question. and to tally the score (as they go). 
+// need game to stop oonce user answers the last question or when timer is out. and to tally the score (as they go). 
 
 // data- listen to click and get data set from the button itself
 
@@ -142,3 +167,19 @@ function renderQuestions() {
 //scoreboard = 0
 
 //highscore = 0
+
+// let array = []
+// undefined
+// array.push({name: 'caswell', score: 4 })
+// 1
+// array
+// [{…}]0: {name: 'caswell', score: 4}length: 1[[Prototype]]: Array(0)
+// localStorage.setItem('array', array)
+// undefined
+// localStorage.setItem('array', JSON.stringify)
+// undefined
+// localStorage.setItem('array', JSON.stringify(array))
+// undefined
+// localStorage.array
+// '[{"name":"caswell","score":4}]'
+// JSON.parse(localStorage.array)
