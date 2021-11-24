@@ -118,31 +118,36 @@ function renderQuestions() {
 
 };
 
-// localStorage.setItem()
-
 function endGame() {
 
     // hides the the contents in the main element
-  document.querySelector('#main').setAttribute('class', 'hide');
+  document.querySelector('.question-answer-container').setAttribute('class', 'hide');
     // stops timer when all questions have been answered
   if (lyricArray[currentLyric] === undefined){
     
     clearInterval(intervalId);
 
   }
+    // display a banner that lets the user know the game is over
+  let gameOver = document.createElement('h1');
+  gameOver.textContent = 'Game Over!';
+    console.log(gameOver);
+  gameOver.setAttribute('id', 'game-over-banner')
+  document.querySelector('#game-over').append(gameOver);
 
 
 
 
-
-
-  // hide - the <main> element
   // display text that lets user know game's over by creating an element
+
+
+
+
   // display final score
   // store score to localStorage
   // display an input - form saved to local storage
   // previous highscores
-  // turn off timer
+
 
 }
 
@@ -154,7 +159,7 @@ function endGame() {
 // function to end the game then prompts user to enter name and save score to local storage
 
 
-
+// localStorage.setItem()
 
 // need game to stop oonce user answers the last question or when timer is out. and to tally the score (as they go). 
 
