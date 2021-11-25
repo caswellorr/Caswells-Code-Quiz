@@ -132,15 +132,23 @@ function endGame() {
   let gameOver = document.createElement('h1');
   gameOver.textContent = 'Game Over!';
     console.log(gameOver);
-  gameOver.setAttribute('id', 'game-over-banner')
+  gameOver.setAttribute('id', 'game-over-banner');
   document.querySelector('#game-over').append(gameOver);
 
+    // create a form for user to input thier initials that will be submitted to a scorecard - ??? how is the submit button restarting the game???
+  let userForm = document.createElement('form');
+  userForm.setAttribute('id', 'user-form');
+  document.querySelector('#game-over').append(userForm);
 
-
-
-  // display text that lets user know game's over by creating an element
-
-
+  let userInitials = document.createElement('input');
+  userInitials.setAttribute('id', 'user-input');
+  userInitials.setAttribute('placeholder', 'Your Initials...');
+  document.querySelector('#user-form').appendChild(userInitials);
+  
+  let formBtn = document.createElement('button');
+  formBtn.setAttribute('id', 'form-btn');
+  formBtn.textContent = 'Submit';
+  document.querySelector('#user-form').appendChild(formBtn);
 
 
   // display final score
