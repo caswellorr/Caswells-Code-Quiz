@@ -5,9 +5,9 @@ let startButton = document.querySelector("#start-button");
 let intervalId;
 let displayTimer = document.querySelector("#countdown");
 let displayScore = document.querySelector("#high-score");
-let score = 0
+let score = 0;
 
-// ==================== START GAME ============================
+// ==================== START GAME ========================
 
 startButton.addEventListener("click", function () {
 
@@ -69,7 +69,7 @@ let lyricArray = [
 ];
 
 
-//============= START GAME FUNCTION =====================
+//============= START GAME FUNCTIONS =====================
 
 function startGame() {
 
@@ -97,6 +97,8 @@ function renderQuestions() {
     optionBtn.addEventListener('click', function (event) {
       console.log(event.target.id)
       if (event.target.id === lyricArray[currentLyric].correctAnswer) {
+          // tallies score as user answers correctly - but not working for first question why???
+        displayScore.textContent = score;
         score += 20;
         console.log('correct');
       } else {
@@ -120,22 +122,21 @@ function renderQuestions() {
 
 function endGame() {
 
-    // hides the the contents in the main element
+  // hides the the contents in the main element
   document.querySelector('.question-answer-container').setAttribute('class', 'hide');
-    // stops timer when all questions have been answered
-  if (lyricArray[currentLyric] === undefined){
-    
+  // stops timer when all questions have been answered
+  if (lyricArray[currentLyric] === undefined) {
+
     clearInterval(intervalId);
 
   }
-    // display a banner that lets the user know the game is over
+  // display a banner that lets the user know the game is over
   let gameOver = document.createElement('h1');
   gameOver.textContent = 'Game Over!';
-    console.log(gameOver);
   gameOver.setAttribute('id', 'game-over-banner');
   document.querySelector('#game-over').append(gameOver);
 
-    // create a form for user to input thier initials that will be submitted to a scorecard - ??? how is the submit button restarting the game???
+  // create a form for user to input thier initials that will be submitted to a scoreboard - ??? how is the submit button restarting the game??? - if i comment out the form, the submit button wont restart the game.. why??
   let userForm = document.createElement('form');
   userForm.setAttribute('id', 'user-form');
   document.querySelector('#game-over').append(userForm);
@@ -144,41 +145,44 @@ function endGame() {
   userInitials.setAttribute('id', 'user-input');
   userInitials.setAttribute('placeholder', 'Your Initials...');
   document.querySelector('#user-form').appendChild(userInitials);
-  
+
   let formBtn = document.createElement('button');
   formBtn.setAttribute('id', 'form-btn');
   formBtn.textContent = 'Submit';
   document.querySelector('#user-form').appendChild(formBtn);
+  
+    // displays the score at end of game
+  let scoreCount = document.createElement('p');
+  scoreCount.setAttribute('id', 'scoreCount-btn');
+  scoreCount.textContent = score;
+  document.querySelector('#user-form').appendChild(scoreCount);
 
+    // save initials and score to localStorage, hide form, display scoreboard, restart game
+  localStorage.getItem(userForm);
 
-  // display final score
-  // store score to localStorage
-  // display an input - form saved to local storage
-  // previous highscores
+  formBtn.addEventListener("click", function () {
 
+  localStorage.setItem(userForm);
+
+  document.querySelector('#user-form').setAttribute('class', 'hide');
+
+  // store form with initials and score to local storage
+
+  // display high score and scoreboard with score history
+  })
+
+  // play again button??
 
 }
 
-// key value pairs
 
-// local storage a container to store things
-
-
-// function to end the game then prompts user to enter name and save score to local storage
-
-
-// localStorage.setItem()
-
-// need game to stop oonce user answers the last question or when timer is out. and to tally the score (as they go). 
+// think of local storage as a container to store things
 
 // data- listen to click and get data set from the button itself
 
 //setTimeout
 
 //eventDelegation
-
-// <form> for username and local.Storage to store it?
-
 
 //setAttribute(visibolitu)
 
