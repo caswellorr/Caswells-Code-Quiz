@@ -97,15 +97,15 @@ function renderQuestions() {
     optionBtn.addEventListener('click', function (event) {
       console.log(event.target.id)
       if (event.target.id === lyricArray[currentLyric].correctAnswer) {
-          score += 20;
+        score += 20;
         console.log('correct');
       } else {
         timeLeft -= 5;
         console.log('incorrect')
       }
-      
+
       displayScore.textContent = score;
-      
+
       currentLyric++
 
       if (currentLyric == 5) {
@@ -122,21 +122,19 @@ function renderQuestions() {
 
 function endGame() {
 
-  // hides the the contents in the main element
   document.querySelector('.question-answer-container').setAttribute('class', 'hide');
-  // stops timer when all questions have been answered
+
   if (lyricArray[currentLyric] === undefined) {
 
     clearInterval(intervalId);
 
   }
-  // display a banner that lets the user know the game is over
+
   let gameOver = document.createElement('h1');
   gameOver.textContent = 'Game Over!';
   gameOver.setAttribute('id', 'game-over-banner');
   document.querySelector('#game-over').append(gameOver);
 
-  // create a form for user to input thier initials that will be submitted to a scoreboard - ??? how is the submit button restarting the game ??? - if i comment out the form, the submit button wont restart the game.. why ?? - it is by default. use preventDefault
   let userForm = document.createElement('form');
   userForm.setAttribute('id', 'user-form');
   document.querySelector('#game-over').append(userForm);
@@ -150,37 +148,30 @@ function endGame() {
   formBtn.setAttribute('id', 'form-btn');
   formBtn.textContent = 'Submit';
   document.querySelector('#user-form').appendChild(formBtn);
-  
-    // displays the score at end of game
+
   let scoreCount = document.createElement('p');
   scoreCount.setAttribute('id', 'scoreCount-btn');
   scoreCount.textContent = score;
   document.querySelector('#user-form').appendChild(scoreCount);
 
-    // save initials and score to localStorage, hide form, display scoreboard, restart game
-  
 
   formBtn.addEventListener("click", function (event) {
     event.preventDefault()
-  let storage = JSON.parse(localStorage.getItem('highscores'))
-  if (storage === null) {
-    storage = []
-  }
-  var currentUser = {
-    name: userInitials.value,
-    currentScore: score,
-  }
+    let storage = JSON.parse(localStorage.getItem('highscores'))
+    if (storage === null) {
+      storage = []
+    }
+    var currentUser = {
+      name: userInitials.value,
+      currentScore: score,
+    }
 
-  storage.push(currentUser)
-  localStorage.setItem('highscores', JSON.stringify(storage))
+    storage.push(currentUser)
+    localStorage.setItem('highscores', JSON.stringify(storage))
 
-  window.location.href = 'highscore.html'
+    window.location.href = 'highscore.html'
 
-  // store form with initials and score to local storage
-
-  // display high score and scoreboard with score history
   })
 
-  // play again button??
 
 }
