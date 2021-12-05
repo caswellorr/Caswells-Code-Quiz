@@ -97,15 +97,15 @@ function renderQuestions() {
     optionBtn.addEventListener('click', function (event) {
       console.log(event.target.id)
       if (event.target.id === lyricArray[currentLyric].correctAnswer) {
-          // tallies score as user answers correctly - but not working for first question why???
-        displayScore.textContent = score;
-        score += 20;
+          score += 20;
         console.log('correct');
       } else {
         timeLeft -= 5;
         console.log('incorrect')
       }
-
+      
+      displayScore.textContent = score;
+      
       currentLyric++
 
       if (currentLyric == 5) {
@@ -136,7 +136,7 @@ function endGame() {
   gameOver.setAttribute('id', 'game-over-banner');
   document.querySelector('#game-over').append(gameOver);
 
-  // create a form for user to input thier initials that will be submitted to a scoreboard - ??? how is the submit button restarting the game??? - if i comment out the form, the submit button wont restart the game.. why??
+  // create a form for user to input thier initials that will be submitted to a scoreboard - ??? how is the submit button restarting the game ??? - if i comment out the form, the submit button wont restart the game.. why ?? - it is by default. use preventDefault
   let userForm = document.createElement('form');
   userForm.setAttribute('id', 'user-form');
   document.querySelector('#game-over').append(userForm);
@@ -158,13 +158,23 @@ function endGame() {
   document.querySelector('#user-form').appendChild(scoreCount);
 
     // save initials and score to localStorage, hide form, display scoreboard, restart game
-  localStorage.getItem(userForm);
+  
 
-  formBtn.addEventListener("click", function () {
+  formBtn.addEventListener("click", function (event) {
+    event.preventDefault()
+  let storage = JSON.parse(localStorage.getItem('highscores'))
+  if (storage === null) {
+    storage = []
+  }
+  var currentUser = {
+    name: userInitials.value,
+    currentScore: score,
+  }
 
-  localStorage.setItem(userForm);
+  storage.push(currentUser)
+  localStorage.setItem('highscores', JSON.stringify(storage))
 
-  document.querySelector('#user-form').setAttribute('class', 'hide');
+  window.location.href = 'highscore.html'
 
   // store form with initials and score to local storage
 
@@ -174,36 +184,3 @@ function endGame() {
   // play again button??
 
 }
-
-
-// think of local storage as a container to store things
-
-// data- listen to click and get data set from the button itself
-
-//setTimeout
-
-//eventDelegation
-
-//setAttribute(visibolitu)
-
-//userScore = 0
-
-//scoreboard = 0
-
-//highscore = 0
-
-// let array = []
-// undefined
-// array.push({name: 'caswell', score: 4 })
-// 1
-// array
-// [{…}]0: {name: 'caswell', score: 4}length: 1[[Prototype]]: Array(0)
-// localStorage.setItem('array', array)
-// undefined
-// localStorage.setItem('array', JSON.stringify)
-// undefined
-// localStorage.setItem('array', JSON.stringify(array))
-// undefined
-// localStorage.array
-// '[{"name":"caswell","score":4}]'
-// JSON.parse(localStorage.array)

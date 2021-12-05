@@ -1,4 +1,6 @@
-# What's that Lyric? 🏆
+# 🏗️ Quiz: What's that lyric?
+
+Link : 
 
 ## Description 📖
 
@@ -36,7 +38,20 @@ A scoreboard is displayed with player's history and score so the user can compar
 
 Then the user can play again if they want to by clicking the play again button.
 
+## Screenshots 📷 :
 
+* User is promted to choose the number of characters they want in their password:
+
+  ![alt text](./assets/screenshot1.png)
+  
+* User decides what type of characters they want in their password:
+
+  ![alt text](./assets/screenshot2.png)
+
+* User is presented with a tailored password:
+
+  ![alt text](./assets/screenshot3.png)
+  
 ## Takeaways 💡
 
 I learned how to start functions on the click of a button.
@@ -49,19 +64,12 @@ I learned how to store a form into localStorage then display a scoreboard so the
 
 I traversed the DOM to hide and display elements.
 
-
-
-## User Story
-
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
-
-
 ---
 
-© 2021 Caswell Lee Orr. Confidential and Proprietary. All Rights Reserved.
+© 2021 Caswell Orr. Confidential and Proprietary. All Rights Reserved.
 
 
+
+
+
+  
