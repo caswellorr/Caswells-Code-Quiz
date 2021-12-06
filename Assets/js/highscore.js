@@ -2,6 +2,8 @@
 
 // ============= SCOREBOARD ==============
 
+// display top 5 scores?? 
+
 let storage = JSON.parse(localStorage.getItem('highscores'))
 
 scoreContainer = document.getElementById('highscore-container')

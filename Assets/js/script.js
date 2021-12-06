@@ -1,13 +1,14 @@
-// =================== VARIABLES =============================
+// =================== VARIABLES =====================
 
 let timeLeft = 30;
 let startButton = document.querySelector("#start-button");
 let intervalId;
 let displayTimer = document.querySelector("#countdown");
 let displayScore = document.querySelector("#high-score");
+let currentScore = document.querySelector("#current-score");
 let score = 0;
 
-// ==================== START GAME ========================
+// ==================== START GAME =================
 
 startButton.addEventListener("click", function () {
 
@@ -19,7 +20,7 @@ startButton.addEventListener("click", function () {
 
 });
 
-//  ===================== TIMER =========================
+//  ================= TIMER ===================
 
 function startTimer() {
 
@@ -37,7 +38,7 @@ function startTimer() {
 
 };
 
-// ================== QUESTIONS AND ANSWERS ======================
+// =============== QUESTIONS AND ANSWERS ===============
 
 let currentLyric = 0;
 let lyricArray = [
@@ -69,7 +70,7 @@ let lyricArray = [
 ];
 
 
-//============= START GAME FUNCTIONS =====================
+//============= START GAME FUNCTIONS ================
 
 function startGame() {
 
@@ -104,7 +105,7 @@ function renderQuestions() {
         console.log('incorrect')
       }
 
-      displayScore.textContent = score;
+      currentScore.textContent = score;
 
       currentLyric++
 
@@ -173,5 +174,29 @@ function endGame() {
 
   })
 
+
+}
+
+let storage = JSON.parse(localStorage.getItem('highscores'))
+if (storage === null) {
+  
+  document.getElementById('high-score').textContent = 'No High Score';
+}
+
+else {
+
+  let scores = []
+
+  console.log(storage);
+
+  for (let i = 0; i < storage.length; i++ ) {
+
+    scores.push(parseInt(storage[i].currentScore));
+
+  } 
+  
+  console.log(scores)
+
+  document.getElementById('high-score').textContent = Math.max(...scores);
 
 }
