@@ -42,15 +42,15 @@ Then the user can play again if they want to by clicking the play again button.
 
 * User starts game by clicking the start button:
 
-  ![alt text](./assets/screenshot1.png)
+  ![alt text](./Assets/screenshot1.png)
   
 * User fills in the blanks:
 
-  ![alt text](./assets/screenshot2.png)
+  ![alt text](./Assets/screenshot2.png)
 
 * User can play again:
 
-  ![alt text](./assets/screenshot3.png)
+  ![alt text](./Assets/screenshot3.png)
   
 ## Takeaways 💡
 
