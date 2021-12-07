@@ -40,15 +40,15 @@ Then the user can play again if they want to by clicking the play again button.
 
 ## Screenshots 📷 :
 
-* User is promted to choose the number of characters they want in their password:
+* User starts game by clicking the start button:
 
   ![alt text](./assets/screenshot1.png)
   
-* User decides what type of characters they want in their password:
+* User fills in the blanks:
 
   ![alt text](./assets/screenshot2.png)
 
-* User is presented with a tailored password:
+* User can play again:
 
   ![alt text](./assets/screenshot3.png)
   
